@@ -6,7 +6,7 @@ class Linear:
         self.b = np.random.randn(1,output_size)
     
     def forward(self, x):
-        self.x
+        self.x = x
         y = x @ self.W + self.b
         return y
 	
