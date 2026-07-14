@@ -14,9 +14,7 @@ class Linear:
         grad_W = self.x.T @ grad_output
         grad_b = np.sum(grad_output, axis=0, keepdims=True)
         
-        grad_input = grad_output @ self.W.T
+        self.W -= learning_rate * grad_W
+        self.b -= learning_rate * grad_b
         
-        self.W += learning_rate * grad_W
-        self.b += learning_rate * grad_b
-        
-        return grad_input
+        return grad_output @ self.W.T
